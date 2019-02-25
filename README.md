@@ -57,6 +57,7 @@ yum install at -y
 pip3 install -r requirements.txt
 
 3、创建数据库与导入库表
+
 CREATE DATABASE devops DEFAULT CHARACTER SET utf8;
 
 mysql devops <  devops.sql 
