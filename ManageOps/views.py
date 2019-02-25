@@ -177,7 +177,7 @@ def add_cron(request):
         cmd = Shell()
         user = create_user
         password = rbac_models.UserInfo.objects.filter(name=create_user).values('password')[0]['password']
-        cron_at_shell_name = cmd.cmd("/bin/bash  %s/OpsManage/ManageOps/cron_shell/at_shell.sh %s %s %s %s %s "%(settings.HOME_PATH_DIR,user,password,add_cron_www_name,settings.HOME_PATH_DIR,settings.PATH_URL))
+        cron_at_shell_name = cmd.cmd("/bin/bash  %s/ManageOps/cron_shell/at_shell.sh %s %s %s %s %s "%(settings.HOME_PATH_DIR,user,password,add_cron_www_name,settings.HOME_PATH_DIR,settings.PATH_URL))
         print(cron_at_shell_name)
        # end_id = models.Cron_git.objects.all().order_by('-id')[0]
        # current_id = int(end_id.id))+1
