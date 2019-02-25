@@ -64,3 +64,25 @@ mysql devops <  devops.sql
 
 
 # 需要使用nginx做动静分离（不然css、js等加载不了）
+
+##nginx配置参考
+
+```
+server {
+    listen 80;
+    server_name _;
+    charset     utf-8;
+    location / {
+        charset     utf-8;
+        include uwsgi_params;
+        uwsgi_read_timeout 3600;
+        proxy_pass http://127.0.0.1:8000;
+    }
+    location  /static/ {
+        alias /data/devops/ManageOps/static/;
+    }
+}
+
+```
+
+
