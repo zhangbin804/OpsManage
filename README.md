@@ -14,6 +14,7 @@
 3、基于at实现的定时上线
 4、上线与回滚钉钉提示
 5、上线过程自动更改slb权重（暂时没用到，所以只写了控制slb权重的daemon）
+阿里云slb程序文件ManageOps/src/aliyun_slb.py
 ## 2、ssh账号管理（基于ansible）
 1、添加或删除ssh账号
 2、随机生成密码的功能
