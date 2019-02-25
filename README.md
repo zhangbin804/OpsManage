@@ -63,4 +63,4 @@ CREATE DATABASE devops DEFAULT CHARACTER SET utf8;
 mysql devops <  devops.sql 
 
 
-# 需要使用nginx做动静分离（不然css等加载不了）
+# 需要使用nginx做动静分离（不然js等加载不了）
