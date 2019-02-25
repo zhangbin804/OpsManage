@@ -1,0 +1,49 @@
+{% extends "left_mode.html" %}
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+{% endblock %}
+  </head>
+
+  <body class="nav-md">
+
+        <!-- /page content -->
+{% block right %}
+    <div style="float: left;">
+
+    <div class="lift_col" role="main">
+
+
+        <h3>SSH账号编辑</h3>
+           <input type="button"  id="create_random_pass" style="float: right;"  class="btn btn-primary" value="随机密码">
+
+
+                  <h1>账号:&nbsp;<small id="username">{{ user }}</small></h1><br>
+                  <input type="text" id="update_ssh_password" name="password" class="form-control col-md-7 col-xs-12 random_password" placeholder="密码">
+                <br><br><br>
+              <div style="font-size: 15px;">
+              <br><div style="font-weight:bold;">已有的host:
+        {% for host in have_host_list %}
+            <span style="font-weight: lighter;border: 1px solid #9aafe5;padding: 2px 5px;margin: 0 2px;">{{ host }}   <a href="/ssh_user/remove_host/?user={{ user }}&remove_host={{ host }}" style="color: blue;">删除</a></span>
+        {% endfor %}
+        </div>
+        <br><div style="font-weight:bold;">未拥有的host:
+        {% for i in not_host %}
+            <span style="font-weight: lighter;border: 1px solid #9aafe5;padding: 2px 5px;margin: 0 2px;">{{ i }} <a href="/ssh_user/add_host/?user={{ user }}&add_host={{ i }}" style="color: blue;">添加</a></span>
+        {% endfor %}
+                  </div>
+                  <div style="height: 100px;width: 700px;"></div>
+          <input type="button"  id="update_ssh_user_password" style="float: right;"  class="btn btn-primary" value="确定">
+
+
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+        {% endblock %}
+
+  </body>
+</html>

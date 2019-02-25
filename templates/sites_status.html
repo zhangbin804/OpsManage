@@ -1,0 +1,66 @@
+{% extends "left_mode.html" %}
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+{% endblock %}
+  </head>
+
+  <body class="nav-md">
+
+        <!-- /page content -->
+{% block right %}
+    <div style="float: right;">
+      <h3>代码版本管理</h3>
+        <div style=" height: 50px; width: 50px;"></div>
+        <div style="position: relative;"></div>
+        <div  style="position: absolute;left: 500px;">
+                  <h2>站点:&nbsp;<small id="git_www_name" style="font-size: 20px;">{{ www_name }}</small></h2><br>
+                  <h2>当前版本:&nbsp;<small style="font-size: 20px;">{{ old_version }}</small></h2><br>
+                  <h2>最新版本:&nbsp;<small style="font-size: 20px;">{{ new_version }}</small></h2><br>
+             </div>
+        <div style="font-size: 15px;">
+
+         <div style="height: 300px;width: 700px;"></div>
+          <input type="button" style="position: absolute;right: 200px;top: 100px;"  class="btn btn-primary" id="new_version"  value="更新到最新版本" >
+
+            <div style="position: absolute;right: 240px;top: 160px;">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">版本回退</button>
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+     <div class="modal-dialog modal-lg" role="document">
+     <div class="modal-content" style="width: 800px;height: 500px;">
+        <div class="www_version">
+            <select id="history_version" class="form-control">
+                {% for key,value in www_git_10_row_dict.items %}
+                    <option value="{{ key }}">{{ value }}</option>
+                {% endfor %}
+            </select>
+    </div>
+          <input   class="btn btn-primary"  style="position: absolute;right: 100px;top: 90%;" id="determine" type="button"  value="确定"/>
+
+
+</div>
+                 </div>
+    </div>
+
+  </div>
+</div>
+
+    </div></br>
+
+
+
+<div style="position: absolute;top: 80%;left: 25%;">
+<nav aria-label="...">
+    <ul class="pagination">
+        <li class="disabled"></li>
+        {{ pager }}
+
+    </ul>
+
+</nav>
+</div>
+
+        {% endblock %}
+
+  </body>
+</html>

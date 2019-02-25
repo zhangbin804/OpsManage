@@ -1,0 +1,98 @@
+{% extends "left_mode.html" %}
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+{% endblock %}
+  </head>
+
+  <body class="nav-md">
+
+        <!-- /page content -->
+{% block right %}
+    <div style="float: right;">
+
+
+
+  </div>
+
+    <div class="lift_col" role="main">
+
+          <div class="lift_col">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>权限更改</h3>
+                  <input id="roles_title" style="display: none;" value="{{ roles_id }}">
+              </div>
+
+
+              <div class="title_right">
+
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12 table">
+                <div class="x_panel">
+                  <div class="x_title">
+
+                    <ul class="nav navbar-right panel_toolbox">
+
+                      <li class="dropdown">
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+
+
+
+{% load my_templateags %}
+
+
+{% for k,v in all_permission_dict.items %}
+
+    <div style="height: 50px;"><span style="float: left;width: 100px;height: 50px;font-weight: bold ">{{ k }}</span><td>
+         {% for id,title in v.items %}
+             {% if  id in old_roles_permission_id_list%}
+             <div style="width: 200px; display: inline-block;"><input name="items" type="checkbox" value="{{ id }}" checked>
+             {{ title }}</div>
+         {% else %}
+                  <div style="width: 200px; display: inline-block;"><input name="items" type="checkbox" value="{{ id }}">
+             {{ title }}</div>
+             {% endif %}
+          {% endfor %}
+     </td>
+    </div>
+
+{% endfor %}
+
+
+                  </div>
+                  <div style="width: 55px;height: 50px; display:inline-block;vertical-align:middle;"></div><input type="checkbox" id="checkAll"  value="all">全选
+                </div>
+
+              </div>
+              <div><input type="button"  id="update_roles_permission"  style="position: absolute;right: 100px;top: 80%;" class="btn btn-primary" value="确定"></div>
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+
+
+        {% endblock %}
+  </body>
+</html>

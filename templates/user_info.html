@@ -1,0 +1,136 @@
+{% extends "left_mode.html" %}
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+{% endblock %}
+  </head>
+
+  <body class="nav-md">
+
+        <!-- /page content -->
+{% block right %}
+    <div style="float: right;">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">添加</button>
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+     <div class="modal-dialog modal-lg" role="document">
+       <div class="modal-content" style="width: 800px;height: 500px;">
+      <div class="col-md-7" style="position: absolute;top: 50px; left: 20px;">
+          <input type="text" id="add_username" name="username" required="required" class="form-control col-md-7 col-xs-12" placeholder="用户名"><br><br>
+          <input type="password" id="add_password" name="password" class="form-control col-md-7 col-xs-12" placeholder="密码"><br><br>
+          <input type="text" id="add_email" name="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="邮箱"><br><br>
+            <input type="text" id="add_user" name="user" required="required" class="form-control col-md-7 col-xs-12" placeholder="真实姓名"><br><br>
+          <select class="form-control" id="add_role">
+              {% for role in roles_list %}
+                  <option value="{{ role.id }}">{{ role.title }}</option>
+              {% endfor %}
+
+          </select><br><br>
+
+
+          <input type="button" id="user_add_submit" style="position: absolute;right: 1px;" class="btn btn-primary" value="确定">
+        </div>
+    </div>
+    </div>
+
+  </div>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-remove">删除</button>
+    <div class="modal fade bs-example-modal-lg-remove" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+     <div class="modal-dialog modal-lg" role="document">
+     <div class="modal-content" style="width: 800px;height: 500px;">
+          {% for i in  cls_list %}
+        <p style="text-align: left;margin:0; "><input  style="vertical-align:middle;width: 40px;height: 20px;" type="checkbox" name="delete_name" value="{{ i.name }}">{{ i.name }} {{ i.username }}</p>
+
+    {% endfor %}
+          <input type="button"  id="remove_user_list"  style="position: absolute;right: 100px;top: 80%;" class="btn btn-primary" value="确定">
+
+    </div>
+
+  </div>
+</div>
+
+    </div></br>
+
+
+    <div class="lift_col" role="main">
+              <div class="lift_col">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>用户管理</h3>
+              </div>
+
+              <div class="title_right">
+
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12 table">
+                <div class="x_panel">
+                  <div class="x_title">
+
+                    <ul class="nav navbar-right panel_toolbox">
+
+                      <li class="dropdown">
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <table class="table" style="font-size: 15px;">
+                      <thead>
+                        <tr>
+                          <th>账号</th>
+                            <th>真实姓名</th>
+                            <th>邮箱</th>
+                          <th>角色组</th>
+                          <th>编辑</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+
+
+
+{% load my_templateags %}
+{% for i in cls_list %}
+    <tr><td>{{i.name}}</td><td>{{ i.username }}</td><td>{{ i.email }}</td>
+        <td>{% role_group i %}</td>
+    <td><a name="{{ i.name }}"   href="/user_info/edit/{{ i.id }}/" style="color: blue;" >编辑</a></td></tr>
+{% endfor %}
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+
+              </div>
+            </div>
+          </div>
+<div style="position: absolute;top: 80%;left: 25%;">
+<nav aria-label="...">
+    <ul class="pagination">
+        <li class="disabled"></li>
+        {{ pager }}
+
+    </ul>
+
+</nav>
+</div>
+
+        {% endblock %}
+
+  </body>
+</html>

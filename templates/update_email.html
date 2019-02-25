@@ -1,0 +1,28 @@
+{% extends "left_mode.html" %}
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+{% endblock %}
+
+<body class="nav-md">
+{% block right %}
+ <h3>邮箱修改</h3>
+    <br>
+
+  <div class="form-group">
+      <h4 >&nbsp 用户：<span id="email_username">{{ username }}</span></h4><br>
+            <h4 >&nbsp 当前邮箱：<span id="old_email">{{ email }}</span></h4><br>
+     <div class="col-md-7">
+       <input type="text" id="update_email" name="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="更改邮箱">
+     </div><br><br><br><br>
+  </div>
+      <div  style="float: right;" class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+						  <input  id="update_email_put"    type="button"   class="btn btn-primary"     value="确定">
+     </div>
+
+
+
+
+{% endblock %}
+</body>
+</html>

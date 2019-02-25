@@ -1,0 +1,129 @@
+{% extends "left_mode.html" %}
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+{% endblock %}
+  </head>
+
+  <body class="nav-md">
+
+        <!-- /page content -->
+{% block right %}
+    <div style="float: right;">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">添加</button>
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+     <div class="modal-dialog modal-lg" role="document">
+     <div class="modal-content" style="width: 800px;height: 500px;">
+      <input type="button"  id="create_random_pass" style="position: absolute;right: 10%;top: 10%;"  class="btn btn-primary" value="随机密码">
+      <div class="col-md-7" style="position: absolute;top: 50px; left: 20px;">
+          <input type="text" id="add_ssh_username" name="username"  required="required" class="form-control col-md-7 col-xs-12" placeholder="用户名"><br><br>
+          <input type="text" id="add_ssh_password" name="password" class="form-control col-md-7 col-xs-12 random_password" placeholder="密码"><br><br>
+          <h4>host:</h4>
+          <select id="add_server_list" multiple="multiple" size="10">
+            {% for i in web_server_list %}
+                 <option value="{{ i.server_name }}">{{ i.server_name }}</option>
+            {% endfor %}
+        </select>
+          <input type="button"  id="user_add_ssh_user" style="position: absolute;right: 1px;"  class="btn btn-primary" value="确定">
+          <p id="msg_error"></p>
+        </div>
+    </div>
+
+  </div>
+</div>
+    <button type="button"  class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-remove">删除</button>
+    <div class="modal fade bs-example-modal-lg-remove" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+     <div class="modal-dialog modal-lg" role="document">
+     <div class="modal-content" style="width: 800px;height: 500px;">
+       {% for i in  cls_list %}
+        <p style="text-align: left;margin:0; "><input  style="vertical-align:middle;width: 40px;height: 20px;" type="checkbox" name="delete_name" value="{{ i.user }}">{{ i.user}}</p>
+
+    {% endfor %}
+     <input type="button"  id="remove_ssh_user"  style="position: absolute;right: 100px;top: 80%;" class="btn btn-primary" value="确定">
+    </div>
+
+  </div>
+</div>
+
+    </div></br>
+
+
+    <div class="lift_col" role="main">
+
+
+          <div class="lift_col">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>SSH账号管理</h3>
+              </div>
+
+              <div class="title_right">
+
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12 table">
+                <div class="x_panel">
+                  <div class="x_title">
+
+                    <ul class="nav navbar-right panel_toolbox">
+
+                      <li class="dropdown">
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>账号</th>
+                          <th>服务器</th>
+                          <th>创建时间</th>
+                          <th>编辑</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+ {% for i in cls_list %}
+    <tr><td>{{i.user}}</td><td>{{ i.host }}</td><td>{{ i.create_time }}</td><td><a name="{{ i.user }}"   href="/ssh_user/edit/{{ i.id }}/" style="color: blue;" >编辑</a></td></tr>
+{% endfor %}
+
+                        </tr>
+
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+
+              </div>
+            </div>
+          </div>
+    <div style="position: absolute;top: 80%;left: 25%;">
+<nav aria-label="...">
+    <ul class="pagination">
+        <li class="disabled"></li>
+        {{ pager }}
+
+    </ul>
+
+</nav>
+</div>
+
+        {% endblock %}
+
+  </body>
+</html>

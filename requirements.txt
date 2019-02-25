@@ -1,0 +1,8 @@
+Django==2.0.5
+PyMySQL==0.8.0
+requests==2.19.1
+django-mysql==2.4.1
+mysqlclient==1.3.13
+aliyun-python-sdk-core-v3==2.9.1
+aliyun-python-sdk-slb==3.2.7
+lxml==3.8.0

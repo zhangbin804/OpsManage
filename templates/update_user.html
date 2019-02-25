@@ -1,0 +1,43 @@
+{% extends "left_mode.html" %}
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+{% endblock %}
+  </head>
+
+  <body class="nav-md">
+
+        <!-- /page content -->
+{% block right %}
+    <div style="float: left;">
+
+    <div class="lift_col" role="main">
+
+
+        <h3>账号编辑</h3>
+
+                  <h1>账号:&nbsp;<small id="username">{{ user }}</small></h1><br>
+                  <input type="text" id="update_password" name="password" class="form-control col-md-7 col-xs-12" placeholder="密码"> <br><br>
+                  <input type="text" id="update_email" name="email" class="form-control col-md-7 col-xs-12" placeholder="邮箱"> <br><br>
+
+        <select id="update_competence" class="form-control">
+            <option value="0">不添加权限</option>
+            <option value="1">代码管理权限</option>
+            <option value="2">管理员权限</option>
+        </select>
+</div>
+                  <div style="height: 100px;width: 700px;"></div>
+          <input type="button"  id="update_user"  style="float: right;"  class="btn btn-primary" value="确定">
+
+
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+        {% endblock %}
+
+  </body>
+</html>
