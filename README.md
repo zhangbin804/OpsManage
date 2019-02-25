@@ -50,17 +50,27 @@ python版本为Python3.6
 
 1、at安装
 
+```
 yum install at -y
+
+```
 
 2、安装python第三方库
 
+```
 pip3 install -r requirements.txt
+```
+
 
 3、创建数据库与导入库表
 
+```
 CREATE DATABASE devops DEFAULT CHARACTER SET utf8;
-
+```
+```
 mysql devops <  devops.sql 
+
+```
 
 
 # 需要使用nginx做动静分离（不然有可能css、js等加载不了）
