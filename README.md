@@ -73,7 +73,7 @@ mysql devops <  devops.sql
 ```
 
 
-# 需要使用nginx做动静分离（不然有可能css、js等加载不了）
+# 需要使用nginx做动静分离（不然有可能css、js等加载不了）(或者将settings.py文件中的DEBUG = Ture)
 
 ##nginx配置参考
 
