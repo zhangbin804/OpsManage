@@ -4,8 +4,6 @@ import time
 from datetime import datetime
 import json
 
-# os.system(r'git clone http://zhangb:12345678@testgit.168p2p.com/exploit/test.git F:/GIT/test')
-
 
 
 class Shell:
