@@ -19,7 +19,7 @@
 
 4、上线与回滚钉钉提示
 
-5、上线过程自动更改slb权重（暂时没用到，所以只写了控制slb权重的daemon）
+5、上线过程自动更改slb权重（暂时没用到，所以只写了控制slb权重的demo）
 
 阿里云slb程序文件ManageOps/src/aliyun_slb.py
 
